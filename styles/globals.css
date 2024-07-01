@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.citizenField{
+  position: relative;
+}
+.citizenField > ul{
+    position: absolute;
+    top:121%;
+    left: 0;
+    width: 275px;
+    max-height: 330px;
+    background-color: #fff;
+    list-style: none;
+    border:1px solid #efefee;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    z-index: 20;
+    overflow-y: auto;
+
+}
+.citizenField > ul > li{
+   border-bottom: 1px solid #efefee;
+   padding: 5px 10px;
+   cursor: pointer;
+   display: block;
+   color: #333;
+   font-size: 14px;
+   transition: all 0.5s;
+}
+.citizenField > ul > li:hover{
+    background-color: #eee;
+}
+.citizenField > ul::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  .citizenField > ul::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .citizenField > ul::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  .citizenField > ul::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

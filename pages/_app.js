@@ -1,6 +1,7 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'slick-carousel/slick/slick.css';
+import "../styles/globals.css";
 
 import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
