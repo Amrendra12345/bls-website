@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /checkout/
+Disallow: /success/
+Disallow: /_next/

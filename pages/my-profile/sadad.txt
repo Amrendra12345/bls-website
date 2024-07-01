@@ -1,0 +1,86 @@
+
+<Row>
+<Col sm={12} md={3} lg={3}>
+    <ul className='profile_ul'>
+        <li><Link href={'/my-profile/my-transactions'}><a><i className='fa fa-list'></i> My Transactions</a></Link></li>
+        <li><Link href={'/my-profile/change-password'}><a><i className='fa fa-key'></i> Change Password</a></Link></li>
+        <li><Link href={'/my-profile'}><a><i className='fa fa-user'></i> Update Profile</a></Link></li>
+    </ul>
+</Col>
+<Col sm={12} md={9} lg={9}>
+    
+<Accordion defaultActiveKey="0">
+{this.props.My_transactions.map((traveler_info, index) => (
+<Card key={index}>
+  <Card.Header>
+    <Accordion.Toggle as={Button} variant="link" eventKey={index.toString()}>
+      {traveler_info.transaction_id}
+    </Accordion.Toggle>
+  </Card.Header>
+  <Accordion.Collapse eventKey={index.toString()}>
+    <Card.Body>
+    <Row>
+
+
+    {traveler_info.additional_detail != 'No' ?	
+    
+    <>
+{traveler_info.additional_details_name_ar.map((additional_element, index) =>
+<Col sm={6} key={index}>
+<div className="ftv-field">
+<label>{traveler_info.additional_details_ar[index]}</label>
+<input id={additional_element.field_name} type='text' name={additional_element.field_name} className='form-control' placeholder="Here" onChange={e => this.handleChange(index, e)} />
+</div>
+</Col>
+)}
+
+</>
+:
+''
+}
+</Row>
+<h5 className='mt-4 pt-2 mb-0'>Upload Documents</h5>
+<Row>
+{traveler_info.document.map((subElement, subindex) => (
+<Col sm={6} key={subindex}>
+<>
+<div className="ftv-field file_upload">
+<label htmlFor="file1">{subElement.doc_name} </label>
+
+{/* <input id={subElement.subindex} name={subElement.subindex} type="file" className="form-control file" placeholder="Upload File Here" onChange={e => this.handleInputFileChange(index, subindex, e, subElement.document_fields.subindex.field_name)} />
+
+<small>{this.state.UploadedFile[index].LocalUploadedFile[subindex]}</small>
+<span className='browse' title='Browse'><i className='fa fa-upload'></i></span> */}
+<b>or</b>
+{/* <span onClick={() => this.setState({ showWebCamModal: true, currentActiveWebCamName: this.props.traveler_info.document_fields[subindex].field_name, currentActiveWebCamIndex: index, currentActiveWebCamSubIndex: subindex })} className='browse2' title='Take Photo'><i className='fa fa-camera'></i></span> */}
+</div>
+
+</>
+
+{/* {this.state.spinner ?
+<Button variant="primary" disabled> 
+<Spinner
+as="span"
+animation="grow"
+size="sm"
+role="status"
+aria-hidden="true"
+/>
+Loading...
+</Button> : ''} */}
+</Col>
+))}
+
+
+</Row>
+
+    </Card.Body>
+  </Accordion.Collapse>
+</Card>
+))}
+</Accordion>
+
+</Col>
+
+
+</Row>
